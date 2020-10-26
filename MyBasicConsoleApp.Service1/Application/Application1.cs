@@ -17,8 +17,4 @@ namespace MyBasicConsoleApp.Service1.Application
             var someValue = repository1.Get();
         }
     }
-
-    public interface IApplication1 {
-        void Perform();
-    }
 }

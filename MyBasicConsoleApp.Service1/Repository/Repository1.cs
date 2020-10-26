@@ -17,10 +17,5 @@ namespace MyBasicConsoleApp.Service1.Repository
         {
             return adapter1.get();
         }
-
-    }
-
-    public interface IRepository1 {
-        Service1Model Get();
     }
 }
