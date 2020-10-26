@@ -12,15 +12,32 @@ namespace MyBasicConsoleApp
     {
         static void Main(string[] args)
         {
-            var serviceProvide = new ServiceCollection()
-                .AddSingleton<IStartup, Startup>()
-                .AddTransient<IAdapter1, Adapter1>()
-                .AddTransient<IRepository1, Repository1>()
-                .AddTransient<IApplication1, Application1>()
-                .AddTransient<IUtility1, Utility1>()
-                .BuildServiceProvider();
+            var serviceProvide = new ServiceCollection();
+            ConfigureServices(serviceProvide);
+            ConfigureLogs(serviceProvide);
 
-            serviceProvide.GetService<IStartup>().DoWork(args);
+            serviceProvide.BuildServiceProvider().GetService<IStartup>().DoWork(args);
         }
+
+        public static void ConfigureServices(IServiceCollection service)
+        {
+
+            service.AddSingleton<IStartup, Startup>()
+            .AddTransient<IAdapter1, Adapter1>()
+            .AddTransient<IRepository1, Repository1>()
+            .AddTransient<IApplication1, Application1>()
+            .AddTransient<IUtility1, Utility1>();
+
+        }
+
+
+        public static void ConfigureLogs(IServiceCollection service)
+        {
+
+        }
+
+
+
+
     }
 }
