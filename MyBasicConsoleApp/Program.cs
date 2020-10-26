@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using MyBasicConsoleApp.Core;
 using MyBasicConsoleApp.Service1.Adapter;
 using MyBasicConsoleApp.Service1.Application;
@@ -33,7 +34,8 @@ namespace MyBasicConsoleApp
 
         public static void ConfigureLogs(IServiceCollection service)
         {
-
+            service.AddLogging(configure => configure.AddConsole())
+            .AddTransient<Adapter1>();
         }
 
 
