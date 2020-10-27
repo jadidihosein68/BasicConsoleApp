@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyBasicConsoleApp.Common.Model;
+using MyBasicConsoleApp.Common.Utilities;
 using MyBasicConsoleApp.Core;
 using MyBasicConsoleApp.Service1.Adapter;
 using MyBasicConsoleApp.Service1.Application;
@@ -46,7 +47,8 @@ namespace MyBasicConsoleApp
             .AddTransient<IAdapter1, Adapter1>()
             .AddTransient<IRepository1, Repository1>()
             .AddTransient<IApplication1, Application1>()
-            .AddTransient<IUtility1, Utility1>();
+            .AddTransient<IUtility1, Utility1>()
+            .AddTransient(typeof(ILogWrapper<>), typeof(LogWrapper<>));
 
         }
 

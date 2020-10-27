@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using MyBasicConsoleApp.Common.Model;
+using MyBasicConsoleApp.Common.Utilities;
 using MyBasicConsoleApp.Service1.Model;
 using System;
 
@@ -8,10 +8,10 @@ namespace MyBasicConsoleApp.Service1.Adapter
 {
     public class Adapter1 : IAdapter1
     {
-        private readonly ILogger logger;
+        private readonly ILogWrapper<Adapter1> logger;
         private readonly IOptions<AppSetting> appSetting;
 
-        public Adapter1(ILogger<Adapter1> _logger, IOptions<AppSetting> _appSetting)
+        public Adapter1(ILogWrapper<Adapter1> _logger, IOptions<AppSetting> _appSetting)
         {
             logger = _logger;
             appSetting = _appSetting;
